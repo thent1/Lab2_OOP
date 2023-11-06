@@ -1,9 +1,7 @@
 package com.example.lab2_oop;
 
 import javafx.scene.Scene;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -23,10 +21,15 @@ public class Application extends javafx.application.Application {
 
         menuBar.getMenus().addAll(file, shapes, info);
 
-        MenuItem point = new MenuItem("Крапка");
-        MenuItem line = new MenuItem("Лінія");
-        MenuItem rectangle = new MenuItem("Прямокутник");
-        MenuItem ellipse = new MenuItem("Еліпс");
+        ToggleGroup toggleGroup = new ToggleGroup();
+        RadioMenuItem point = new RadioMenuItem("Крапка");
+        RadioMenuItem line = new RadioMenuItem("Лінія");
+        RadioMenuItem rectangle = new RadioMenuItem("Прямокутник");
+        RadioMenuItem ellipse = new RadioMenuItem("Еліпс");
+        point.setToggleGroup(toggleGroup);
+        line.setToggleGroup(toggleGroup);
+        rectangle.setToggleGroup(toggleGroup);
+        ellipse.setToggleGroup(toggleGroup);
 
         shapes.getItems().addAll(point, line, rectangle, ellipse);
         borderPane.setTop(menuBar);
